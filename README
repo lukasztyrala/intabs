@@ -1,0 +1,40 @@
+
+intabs, a jQuery plugin for simple
+
+This is an pre-alpha-not-so-well-written release.
+It works as for today but it is not perfect for
+shure. I will try to improve it.
+
+Some informations:
+
+1. No #id needed.
+2. No sections numbering needed.
+3. You can have multiple .your-caintainer boxes on
+   the same page and always only
+   $('your-container').intabs(); is needed.
+4. By adding class="normal" to <li> you exclude it 
+   from beeing a tab.
+5. You can add as many tabs and contents as you like
+   and no numbering nor changes are needed.
+6. Tabs change on "click" event but that can be 
+   changed hacking the code. Simply replace the 
+   "click" to eg. "mouseover".
+
+Important! But remeber that ammount of <li> and tab
+---------- contents (.tabbed by deafult) must match
+
+Usage:
+
+<div class="your-container">
+  <ul class="tabs">
+    <li class="normal">Tabs:</li>
+    <li>[1]</li>
+    <li>[2]</li>
+    <li>[3]</li>
+  </ul>
+  <div class="tabbed">[1]</div>
+  <div class="tabbed">[2]</div>
+  <div class="tabbed">[3]</div>
+</div>
+
+$('your-container').intabs();
