@@ -1,9 +1,9 @@
 /* 
-  @project  intabs
+  @project intabs
   @name intabs.js
-  @license  MIT License (http://www.opensource.org/licenses/mit-license.php)
+  @license MIT License (http://www.opensource.org/licenses/mit-license.php)
   @author Lukasz Tyrala (http://lukasztyrala.pl/)
-  @description  A jQuery Plugin for tabbed content browsing that needs no id only class names
+  @description A jQuery Plugin for tabbed content browsing that needs no id only class names
   @contributors Thanks for help goes to pblo, jan and adrian
 */
 
@@ -18,7 +18,7 @@ jQuery.fn.intabs = function(tab_id) {
     var sub_section_def = '.tabbed';
     var normal_def      = '.normal';
     var current_label   = 'current';
-    // End od settings ---------------------
+    // End of settings ---------------------
 
     var nav_element = $(this).find(nav_element_def).not(normal_def);
     var sub_section = $(this).find(sub_section_def);

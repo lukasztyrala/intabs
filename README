@@ -1,40 +1,73 @@
 
-intabs, a jQuery plugin for simple
+intabs, a jQuery plugin for simple tabbed content
+-----------------------------------------------------------
 
-This is an pre-alpha-not-so-well-written release.
-It works as for today but it is not perfect for
-shure. I will try to improve it.
+Very simple plugin (a jQuery function to be honest) to turn
+few lis and divs into tabbed content. This is for simple
+things--no ajax, no fancy effects.
 
-Some informations:
+
+Informations:
+-----------------------------------------------------------
 
 1. No #id needed.
-2. No sections numbering needed.
-3. You can have multiple .your-caintainer boxes on
-   the same page and always only
-   $('your-container').intabs(); is needed.
-4. By adding class="normal" to <li> you exclude it 
-   from beeing a tab.
-5. You can add as many tabs and contents as you like
-   and no numbering nor changes are needed.
-6. Tabs change on "click" event but that can be 
-   changed hacking the code. Simply replace the 
-   "click" to eg. "mouseover".
 
-Important! But remeber that ammount of <li> and tab
----------- contents (.tabbed by deafult) must match
+2. No sections numbering needed.
+
+3. You can have multiple .your-caintainer boxes on the same
+   page and always only $('your-container').intabs() is
+   needed.
+
+4. By adding class="normal" to <li> you exclude it from
+   beeing a tab.
+
+5. You can add as many tabs and contents as you like and no
+   numbering nor changes are needed.
+
+   .------.  Remeber that ammount of <li> (excluding those
+   | Note |  with class .normal) and tab contents (class
+   '------'  .tabbed by deafult) must match!
+
+6. Tabs change on "click" event but that can be changed 
+   hacking the code. Simply replace the "click" with, say,
+   "mouseover".
+
+7. If you want to start with other than first tab, specify
+   the index of starting tab line this: .intabs(1). This
+   works as array indexes, so 1st tab is 0, 2nd is 1, etc.
+
 
 Usage:
+-----------------------------------------------------------
 
 <div class="your-container">
-  <ul class="tabs">
-    <li class="normal">Tabs:</li>
-    <li>[1]</li>
-    <li>[2]</li>
-    <li>[3]</li>
-  </ul>
-  <div class="tabbed">[1]</div>
-  <div class="tabbed">[2]</div>
-  <div class="tabbed">[3]</div>
+
+    <ul class="tabs">
+        <li class="normal">Tabs:</li>
+        <li>[1]</li>
+        <li>[2]</li>
+        <li>[3]</li>
+    </ul>
+
+    <div class="tabbed">[1]</div>
+    <div class="tabbed">[2]</div>
+    <div class="tabbed">[3]</div>
+
 </div>
 
-$('your-container').intabs();
+$(document).ready(function() {
+    $('your-container').intabs();
+});
+
+
+Notes:
+-----------------------------------------------------------
+
+This is released onder MIT licence. Do what you want with
+it but do not expect anything.
+
+Repo for this plugin is located here:
+http://github.com/lukasztyrala/intabs
+
+
+The end. Thanks for reading! :-)
