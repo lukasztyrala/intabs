@@ -5,6 +5,7 @@
   @author Lukasz Tyrala (http://lukasztyrala.pl/)
   @description A jQuery Plugin for tabbed content browsing that needs no id only class names
   @contributors Thanks for help goes to pblo, jan and adrian
+  @repo http://github.com/lukasztyrala/intabs
 */
 
 jQuery.fn.intabs = function(tab_id) {
