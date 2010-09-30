@@ -8,18 +8,29 @@
   @repo http://github.com/lukasztyrala/intabs
 */
 
-jQuery.fn.intabs = function(tab_id) {
+jQuery.fn.intabs = function(options) {
 
   return this.each(function() {
 
-    var start_tab       = tab_id || 0; // Tab index to start from
+    var settings = {
+      starting_tab: 0,
+      tab_element: '.tabs li',
+      section_element: '.tabbed',
+      no_tab_class: '.normal',
+      current_class: 'current',
+      triggering_event: 'click' 
+    };
+    
+    if (options) { 
+      jQuery.extend(settings, options);
+    }
 
-    // Settings ----------------------------
-    var nav_element_def = '.tabs li';
-    var sub_section_def = '.tabbed';
-    var normal_def      = '.normal';
-    var current_label   = 'current';
-    // End of settings ---------------------
+    var start_tab = settings.starting_tab;
+    var nav_element_def = settings.tab_element;
+    var sub_section_def = settings.section_element;
+    var normal_def = settings.no_tab_class;
+    var current_label = settings.current_class;
+    var trigger_event = settings.triggering_event;
 
     var nav_element = $(this).find(nav_element_def).not(normal_def);
     var sub_section = $(this).find(sub_section_def);
@@ -32,8 +43,7 @@ jQuery.fn.intabs = function(tab_id) {
     nav_element.addClass('');
     nav_element_start.addClass(current_label);
 
-    // Change 'click' to eg. 'mouseover' for different event
-    nav_element.click(function() {
+    nav_element.bind(trigger_event, function() {
       var nav_index = nav_element.index(this);
 
       sub_section.hide();

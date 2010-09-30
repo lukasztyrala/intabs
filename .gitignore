@@ -1,3 +1,4 @@
-nbproject/*
+nbproject
 jquery*.min.js
-!.gitignore
+.gitignore
+.project
