@@ -1,26 +1,21 @@
+.---------------------------------------------------------.
+| intabs, a jQuery plugin for simple tabbed content       |
+'---------------------------------------------------------'
 
-intabs, a jQuery plugin for simple tabbed content
------------------------------------------------------------
-
-Very simple plugin (a jQuery function to be honest) to turn
-few lis and divs into tabbed content. This is for simple
-things--no ajax, no fancy effects.
+Very simple plugin to turn few <li>s and <div>s into tabbed
+content. This is for simple things only--no ajax, no fancy
+effects.
 
 
-Informations:
+Features:
 -----------------------------------------------------------
 
 1. No #id needed.
-
 2. No sections numbering needed.
-
 3. You can have multiple .your-caintainer boxes on the same
    page and always only $('your-container').intabs() is
    needed.
-
-4. By adding class="normal" to <li> you exclude it from
-   beeing a tab.
-
+4. Excluding some <li>s from beeing a tab.
 5. You can add as many tabs and contents as you like and no
    numbering nor changes are needed.
 
@@ -28,13 +23,8 @@ Informations:
    | Note |  with class .normal) and tab contents (class
    '------'  .tabbed by deafult) must match!
 
-6. Tabs change on "click" event but that can be changed 
-   hacking the code. Simply replace the "click" with, say,
-   "mouseover".
-
-7. If you want to start with other than first tab, specify
-   the index of starting tab line this: .intabs(1). This
-   works as array indexes, so 1st tab is 0, 2nd is 1, etc.
+6. Customizable tab change event.
+7. Customizable starting (active by default) tab.
 
 
 Usage:
