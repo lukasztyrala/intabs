@@ -1,56 +1,72 @@
 /* 
-  @project intabs
-  @name intabs.js
-  @license MIT License (http://www.opensource.org/licenses/mit-license.php)
-  @author Lukasz Tyrala (http://lukasztyrala.pl/)
-  @description A jQuery Plugin for tabbed content browsing that needs no id only class names
-  @contributors Thanks for help goes to pblo, jan and adrian
-  @repo http://github.com/lukasztyrala/intabs
+  intabs.jquery.js * a simple jQuery plugin for tabbed content
+  http://github.com/lukasztyrala/intabs
+  
+  The MIT License
+
+  Copyright (c) 2010 Lukasz Tyrala
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
 */
 
-jQuery.fn.intabs = function (options) {
+jQuery.fn.intabs = function(options) {
 
-    return this.each(function () {
-  
-        var settings = {
-            starting_tab: 0,
-            tab_element: '.tabs li',
-            section_element: '.tabbed',
-            no_tab_class: '.normal',
-            current_class: 'current',
-            triggering_event: 'click' 
-        };
-        
-        if (options) { 
-            jQuery.extend(settings, options);
-        }
+  return this.each(function() {
+
+    var settings = {
+      starting_tab: 0,
+      tab_element: '.tabs li',
+      section_element: '.tabbed',
+      no_tab_class: '.normal',
+      current_class: 'current',
+      triggering_event: 'click' 
+    };
     
-        var st = settings.starting_tab;
-        var te = settings.tab_element;
-        var se = settings.section_element;
-        var ntc = settings.no_tab_class;
-        var cc = settings.current_class;
-        var tev = settings.triggering_event;
-    
-        var nav_element = $(this).find(te).not(ntc);
-        var sub_section = $(this).find(se);
-    
-        var sub_section_start = sub_section.eq(st);
-        var nav_element_start = nav_element.eq(st);
-    
-        sub_section.hide();
-        sub_section_start.show();
-        nav_element.addClass('');
-        nav_element_start.addClass(cc);
-    
-        nav_element.bind(tev, function() {
-            var nav_index = nav_element.index(this);
-            sub_section.hide();
-            sub_section.eq(nav_index).show();
-            nav_element.removeClass(cc);
-            nav_element.eq(nav_index).addClass(cc);
-            return false;
-         });
+    if (options) { 
+      jQuery.extend(settings, options);
+    }
+
+    var st = settings.starting_tab;
+    var te = settings.tab_element;
+    var se = settings.section_element;
+    var ntc = settings.no_tab_class;
+    var cc = settings.current_class;
+    var tev = settings.triggering_event;
+
+    var ne = $(this).find(te).not(ntc);
+    var ss = $(this).find(se);
+    var sss = ss.eq(st);
+    var nes = ne.eq(st);
+
+    ss.hide();
+    sss.show();
+    ne.addClass('');
+    nes.addClass(cc);
+
+    ne.bind(tev, function() {
+      var nav_index = ne.index(this);
+      ss.hide();
+      ss.eq(nav_index).show();
+      ne.removeClass(cc);
+      ne.eq(nav_index).addClass(cc);
+      return false;
      });
+ });
 
 };
